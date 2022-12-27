@@ -14,6 +14,6 @@ namespace OpenLDBWS
         public Guid ServiceIdGuid => new Guid();
 
         [SuppressMessage("Design", "CA1056:Uri properties should not be strings", Justification = "Not a URL")]
-        public string ServiceIdUrlSafe => WebEncoders.Base64UrlEncode(serviceIDField);
+        public string ServiceIdUrlSafe => ServiceIdGuid;
     }
 }
