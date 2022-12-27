@@ -48,9 +48,9 @@ namespace Huxley2.Controllers
                 _logger.LogInformation("Open LDB API time {ElapsedMilliseconds:#,#}ms",
                     clock.ElapsedMilliseconds);
 
-                //var checksum = _stationBoardService.GenerateChecksum(board);
-                //Response.Headers[HeaderNames.ETag] = checksum;
-                //_logger.LogInformation($"ETag: {checksum}");
+                var checksum = _stationBoardService.GenerateChecksum(board);
+                Response.Headers[HeaderNames.ETag] = checksum;
+                _logger.LogInformation($"ETag: {checksum}");
 
                 return board;
             }
