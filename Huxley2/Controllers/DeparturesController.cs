@@ -41,15 +41,16 @@ namespace Huxley2.Controllers
         {
             try
             {
+                _logger.LogInformation("departure board open LDB API started");
                 var clock = Stopwatch.StartNew();
                 var board = await _stationBoardService.GetDepartureBoardAsync(request);
                 clock.Stop();
                 _logger.LogInformation("Open LDB API time {ElapsedMilliseconds:#,#}ms",
                     clock.ElapsedMilliseconds);
 
-                var checksum = _stationBoardService.GenerateChecksum(board);
-                Response.Headers[HeaderNames.ETag] = checksum;
-                _logger.LogInformation($"ETag: {checksum}");
+                //var checksum = _stationBoardService.GenerateChecksum(board);
+                //Response.Headers[HeaderNames.ETag] = checksum;
+                //_logger.LogInformation($"ETag: {checksum}");
 
                 return board;
             }
