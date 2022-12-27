@@ -11,7 +11,7 @@ namespace OpenLDBWS
     {
         public string ServiceIdPercentEncoded => WebUtility.UrlEncode(serviceIDField);
 
-        public Guid ServiceIdGuid => new Guid(Convert.FromBase64String(serviceIDField));
+        public Guid ServiceIdGuid => new Guid();
 
         [SuppressMessage("Design", "CA1056:Uri properties should not be strings", Justification = "Not a URL")]
         public string ServiceIdUrlSafe => WebEncoders.Base64UrlEncode(Convert.FromBase64String(serviceIDField));
