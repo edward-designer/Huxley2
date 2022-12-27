@@ -15,5 +15,8 @@ namespace OpenLDBWS
 
         [SuppressMessage("Design", "CA1056:Uri properties should not be strings", Justification = "Not a URL")]
         public string ServiceIdUrlSafe => WebEncoders.Base64UrlEncode(Convert.FromBase64String(serviceIDField));
+        
+        logger.Info(ServiceIdGuid);
+        logger.Info(ServiceIdUrlSafe);
     }
 }
